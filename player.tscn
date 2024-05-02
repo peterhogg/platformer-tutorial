@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cg36yfu0ilr8t"]
+[gd_scene load_steps=9 format=3 uid="uid://cg36yfu0ilr8t"]
 
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_648fi"]
 [ext_resource type="Texture2D" uid="uid://dw8j1xsjaq5r7" path="res://assets/sprites/knight.png" id="1_eaovu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1c326"]
@@ -41,14 +42,15 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_wvw1q"]
 radius = 5.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_648fi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_vesw2")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.380933
+frame_progress = 0.0240893
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
