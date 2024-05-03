@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c0i3w80cv1vcq"]
+[gd_scene load_steps=12 format=3 uid="uid://c0i3w80cv1vcq"]
 
 [ext_resource type="PackedScene" uid="uid://cg36yfu0ilr8t" path="res://player.tscn" id="1_ihhsc"]
 [ext_resource type="Texture2D" uid="uid://bena4ak4fxkjo" path="res://assets/sprites/world_tileset.png" id="2_8cqgj"]
 [ext_resource type="PackedScene" uid="uid://ba1ufff8jx4t5" path="res://platform.tscn" id="3_nnqht"]
 [ext_resource type="PackedScene" uid="uid://cgcs4o0sqnj17" path="res://coin.tscn" id="4_pf1ig"]
+[ext_resource type="PackedScene" uid="uid://c5pkb0vrb5l8k" path="res://killzone.tscn" id="4_ufsun"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dr2v4"]
 texture = ExtResource("2_8cqgj")
@@ -444,6 +445,8 @@ _data = {
 "move": SubResource("Animation_cn65w")
 }
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3j5qd"]
+
 [node name="Game" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_ihhsc")]
@@ -473,20 +476,28 @@ autoplay = "move"
 [node name="Platform2" parent="." instance=ExtResource("3_nnqht")]
 position = Vector2(50, -40)
 
-[node name="coin" parent="." instance=ExtResource("4_pf1ig")]
+[node name="killzone" parent="." instance=ExtResource("4_ufsun")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(0, 102)
+shape = SubResource("WorldBoundaryShape2D_3j5qd")
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="coin" parent="Coins" instance=ExtResource("4_pf1ig")]
 position = Vector2(26, -12)
 
-[node name="coin2" parent="." instance=ExtResource("4_pf1ig")]
+[node name="coin2" parent="Coins" instance=ExtResource("4_pf1ig")]
 position = Vector2(89, -12)
 
-[node name="coin3" parent="." instance=ExtResource("4_pf1ig")]
+[node name="coin3" parent="Coins" instance=ExtResource("4_pf1ig")]
 position = Vector2(50, -58)
 
-[node name="coin4" parent="." instance=ExtResource("4_pf1ig")]
+[node name="coin4" parent="Coins" instance=ExtResource("4_pf1ig")]
 position = Vector2(215, -58)
 
-[node name="coin5" parent="." instance=ExtResource("4_pf1ig")]
+[node name="coin5" parent="Coins" instance=ExtResource("4_pf1ig")]
 position = Vector2(296, -58)
 
-[node name="coin6" parent="." instance=ExtResource("4_pf1ig")]
+[node name="coin6" parent="Coins" instance=ExtResource("4_pf1ig")]
 position = Vector2(423, -58)
