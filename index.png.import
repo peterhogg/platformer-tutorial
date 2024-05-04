@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ibc8sgyph34m"
-path="res://.godot/imported/BrackeysTut.icon.png-c87a4e481e8aec05242a836674a0b30f.ctex"
+uid="uid://d214hrnwjnpr6"
+path="res://.godot/imported/index.png-de14850a4c2320eaddca8799ea52db2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://export/BrackeysTut.icon.png"
-dest_files=["res://.godot/imported/BrackeysTut.icon.png-c87a4e481e8aec05242a836674a0b30f.ctex"]
+source_file="res://export/index.png"
+dest_files=["res://.godot/imported/index.png-de14850a4c2320eaddca8799ea52db2b.ctex"]
 
 [params]
 
