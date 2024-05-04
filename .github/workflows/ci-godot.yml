@@ -37,6 +37,7 @@ jobs:
         with:
           name: web
           path: build/web
+          retention-days: 1
       # Installing rsync is needed in order to deploy to GitHub Pages. Without it, the build will fail.
       - name: Install rsync 📚
         run: |
