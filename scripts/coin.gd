@@ -1,4 +1,10 @@
 extends Area2D
 
-func _on_body_entered(body):
-	queue_free();
+@onready var game_manager: GameManager = %GameManager
+@onready var pickup_sound: AudioStreamPlayer = $PickupSound
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+
+func _on_body_entered(_body):
+	animation_player.play("pickup_animation")
+	game_manager.add_coin()

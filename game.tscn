@@ -1,11 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://c0i3w80cv1vcq"]
+[gd_scene load_steps=17 format=3 uid="uid://c0i3w80cv1vcq"]
 
 [ext_resource type="PackedScene" uid="uid://cg36yfu0ilr8t" path="res://player.tscn" id="1_ihhsc"]
+[ext_resource type="Script" path="res://scripts/gameManager.gd" id="1_vbcw7"]
 [ext_resource type="Texture2D" uid="uid://bena4ak4fxkjo" path="res://assets/sprites/world_tileset.png" id="2_8cqgj"]
 [ext_resource type="PackedScene" uid="uid://ba1ufff8jx4t5" path="res://platform.tscn" id="3_nnqht"]
 [ext_resource type="PackedScene" uid="uid://cgcs4o0sqnj17" path="res://coin.tscn" id="4_pf1ig"]
 [ext_resource type="PackedScene" uid="uid://c5pkb0vrb5l8k" path="res://killzone.tscn" id="4_ufsun"]
 [ext_resource type="PackedScene" uid="uid://60il1sptjwcq" path="res://slime.tscn" id="6_m4hut"]
+[ext_resource type="FontFile" uid="uid://b4go17y1xb13g" path="res://assets/fonts/PixelOperator8.ttf" id="7_pijrh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w6kxa"]
+font = ExtResource("7_pijrh")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dr2v4"]
 texture = ExtResource("2_8cqgj")
@@ -449,7 +454,24 @@ _data = {
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3j5qd"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3ojy"]
+size = Vector2(96, 15)
+
 [node name="Game" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_vbcw7")
+
+[node name="ScoreLabel" type="Label" parent="GameManager"]
+offset_left = 1404.0
+offset_top = -130.0
+offset_right = 1631.0
+offset_bottom = -95.0
+text = "You got 15 / 15 coins"
+label_settings = SubResource("LabelSettings_w6kxa")
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Player" parent="." instance=ExtResource("1_ihhsc")]
 position = Vector2(12, 9)
@@ -489,6 +511,7 @@ position = Vector2(0, 102)
 shape = SubResource("WorldBoundaryShape2D_3j5qd")
 
 [node name="Coins" type="Node" parent="."]
+unique_name_in_owner = true
 
 [node name="coin" parent="Coins" instance=ExtResource("4_pf1ig")]
 position = Vector2(41, 3)
@@ -537,3 +560,10 @@ position = Vector2(1392, -181)
 
 [node name="slime" parent="." instance=ExtResource("6_m4hut")]
 position = Vector2(1095, -166)
+
+[node name="finish_kill_zone" parent="." instance=ExtResource("4_ufsun")]
+position = Vector2(1522, -96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="finish_kill_zone"]
+position = Vector2(-2, 2.5)
+shape = SubResource("RectangleShape2D_b3ojy")

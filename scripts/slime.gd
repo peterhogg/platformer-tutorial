@@ -1,8 +1,8 @@
 extends Node2D
 
-const speed = 60;
+const speed: float = 60;
 
-var direction = 1;
+var direction: float = 1;
 
 @onready var ray_cast_right = $AnimatedSprite2D/RayCastRight
 @onready var ray_cast_left = $AnimatedSprite2D/RayCastLeft
