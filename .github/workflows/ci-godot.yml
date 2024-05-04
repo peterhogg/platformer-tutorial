@@ -25,9 +25,9 @@ jobs:
       image: barichello/godot-ci:4.2.2
     steps:
       - name: Install Git in container
-          run: |
-            apt-get update && apt-get install git
-            git config --global --add safe.directory "$GITHUB_WORKSPACE"
+        run: |
+          apt-get update && apt-get install git
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
         # Checks-out the repository under $GITHUB_WORKSPACE.
       - name: Checkout
         uses: actions/checkout@v2
